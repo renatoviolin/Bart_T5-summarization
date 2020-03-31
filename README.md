@@ -14,3 +14,9 @@ pip install flask
 ```
 python app.py
 ```
+
+### Bart Summarization
+![Bart Summarization](bart.png)
+
+### T5 Summarization
+![Bart Summarization](t5.png)
