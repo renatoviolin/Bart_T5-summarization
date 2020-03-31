@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/app.css') }}" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300|Open+Sans:300|Oxygen|Material+Icons"
+        rel="stylesheet">
+</head>
+
+
+<body>
+    <h2> Deep Learning in Action </h2>
+    <div class="">
+        <div class="row">
+            <div class="col-sm-1"></div>
+
+            <div class="col-sm-10">
+                <center>
+                    <h3>Text Summarization</h3>
+                    <p> <b>Models</b>: bart_large - T5-base</p>
+                </center>
+                <div class="overlay">
+                    <div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span></div>
+                </div>
+
+                <h4> Input Text </h4>
+                <textarea class="form-control txt_input"
+                    id="txt_input">Google LLC is an American multinational technology company that specializes in Internet-related services and products, which include online advertising technologies, search engine, cloud computing, software, and hardware. It is considered one of the Big Four technology companies, alongside Amazon, Apple, and Microsoft.[10][11] Google was founded in September 1998 by Larry Page and Sergey Brin while they were Ph.D. students at Stanford University in California. Together they own about 14 percent of its shares and control 56 percent of the stockholder voting power through supervoting stock. They incorporated Google as a California privately held company on September 4, 1998, in California. Google was then reincorporated in Delaware on October 22, 2002.[12] An initial public offering (IPO) took place on August 19, 2004, and Google moved to its headquarters in Mountain View, California, nicknamed the Googleplex. In August 2015, Google announced plans to reorganize its various interests as a conglomerate called Alphabet Inc. Google is Alphabet's leading subsidiary and will continue to be the umbrella company for Alphabet's Internet interests. Sundar Pichai was appointed CEO of Google, replacing Larry Page who became the CEO of Alphabet. The company's rapid growth since incorporation has triggered a chain of products, acquisitions, and partnerships beyond Google's core search engine (Google Search). It offers services designed for work and productivity (Google Docs, Google Sheets, and Google Slides), email (Gmail), scheduling and time management (Google Calendar), cloud storage (Google Drive), instant messaging and video chat (Duo, Hangouts), language translation (Google Translate), mapping and navigation (Google Maps, Waze, Google Earth, Street View), video sharing (YouTube), note-taking (Google Keep), and photo organizing and editing (Google Photos). The company leads the development of the Android mobile operating system, the Google Chrome web browser, and Chrome OS, a lightweight operating system based on the Chrome browser. Google has moved increasingly into hardware; from 2010 to 2015, it partnered with major electronics manufacturers in the production of its Nexus devices, and it released multiple hardware products in October 2016, including the Google Pixel smartphone, Google Home smart speaker, Google Wifi mesh wireless router, and Google Daydream virtual reality headset. Google has also experimented with becoming an Internet carrier (Google Fiber, Google Fi, and Google Station).</textarea>
+                <h4> Parameters </h4>
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="input_model">Model</label>
+                        <select id="input_model" class="form-control">
+                            <option selected>BART</option>
+                            <option>T5</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="max_words" id="label_max_words"># words in summary: 50</label>
+                        <input type="range" class="custom-range" min="50" max="200" value="50" step="10" id="max_words">
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="num_beams" id="label_num_beams"># beam search: 6</label>
+                        <input type="range" class="custom-range" min="1" max="20" value="6" step="1" id="num_beams">
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label></label>
+                        <button type="button" class="btn btn-primary btn-lg btn-block"
+                            id="btn-process">Generate</button>
+                    </div>
+                </div>
+
+                <h4> Summary </h4>
+                <textarea class="form-control txt_summary" id="input_summary" readonly> </textarea>
+
+
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+    </div>
+</body>
+
+</html>
