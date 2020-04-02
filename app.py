@@ -6,10 +6,10 @@ import json
 from transformers import BartTokenizer, BartForConditionalGeneration, BartConfig
 from transformers import T5Tokenizer, T5ForConditionalGeneration, T5Config
 
-# BART_PATH = 'bart-large'
-# T5_PATH = 't5-base'
-BART_PATH = 'model/bart'
-T5_PATH = 'model/T5'
+BART_PATH = 'bart-large'
+T5_PATH = 't5-base'
+# BART_PATH = 'model/bart'
+# T5_PATH = 'model/t5'
 
 app = Flask(__name__)
 bart_model = BartForConditionalGeneration.from_pretrained(BART_PATH)
