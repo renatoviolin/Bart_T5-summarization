@@ -12,8 +12,8 @@ T5_PATH = 't5-base'
 # T5_PATH = 'model/t5'
 
 app = Flask(__name__)
-bart_model = BartForConditionalGeneration.from_pretrained(BART_PATH)
-bart_tokenizer = BartTokenizer.from_pretrained(BART_PATH)
+bart_model = BartForConditionalGeneration.from_pretrained(BART_PATH, output_past=True)
+bart_tokenizer = BartTokenizer.from_pretrained(BART_PATH, output_past=True)
 
 
 t5_model = T5ForConditionalGeneration.from_pretrained(T5_PATH)
